@@ -1,0 +1,150 @@
+import {
+  Menu,
+  MessageCircle,
+  Phone,
+  Snowflake,
+  ShieldCheck,
+  Clock3,
+  ArrowRight,
+} from "lucide-react";
+
+export default function Home() {
+  return (
+    <main className="home">
+      {/* HEADER */}
+      <header className="header">
+        <div className="logo-area">
+          <div className="logo-mark">S</div>
+
+          <div>
+            <div className="brand-name">
+              SABIT JAYA <span>SERVICE</span>
+            </div>
+            <div className="brand-tagline">Solusi AC Anda</div>
+          </div>
+        </div>
+
+        <a
+          href="https://wa.me/6280000000000"
+          className="header-whatsapp"
+        >
+          <MessageCircle size={25} />
+          <span>WhatsApp</span>
+        </a>
+
+        <button className="menu-button" aria-label="Menu">
+          <Menu size={32} />
+        </button>
+      </header>
+
+      {/* HERO */}
+      <section className="hero">
+        <div className="hero-glow glow-one" />
+        <div className="hero-glow glow-two" />
+
+        <div className="hero-content">
+          <div className="eyebrow">
+            SERVICE AC PROFESIONAL
+          </div>
+
+          <h1>
+            Service AC 24 Jam
+            <strong>Jabodetabek</strong>
+            Murah Bergaransi
+          </h1>
+
+          <p className="hero-description">
+            Udara panas bikin nggak nyaman?
+            <br />
+            Kami siap bantu! Tim profesional kami akan
+            buat AC Anda kembali sejuk dan optimal —
+            cepat, bersih, dan bergaransi.
+          </p>
+
+          {/* FEATURE */}
+          <div className="features">
+            <div className="feature-card">
+              <div className="feature-icon">
+                <Snowflake size={27} />
+              </div>
+              <div>
+                <b>AC Kembali</b>
+                <span>Sejuk Optimal</span>
+              </div>
+            </div>
+
+            <div className="feature-card">
+              <div className="feature-icon">
+                <ShieldCheck size={27} />
+              </div>
+              <div>
+                <b>Teknisi</b>
+                <span>Profesional</span>
+              </div>
+            </div>
+
+            <div className="feature-card">
+              <div className="feature-icon">
+                <Clock3 size={27} />
+              </div>
+              <div>
+                <b>Layanan</b>
+                <span>24 Jam</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* TECHNICIAN */}
+        <div className="technician-area">
+          <div className="ac-decoration">
+            <div className="ac-body">
+              <div className="ac-line" />
+              <div className="ac-line" />
+              <div className="ac-line" />
+            </div>
+
+            <div className="cold-air">
+              <Snowflake size={30} />
+              <Snowflake size={21} />
+              <Snowflake size={25} />
+            </div>
+          </div>
+
+          <img
+            src="/teknisi.png"
+            alt="Teknisi Sabit Jaya Service"
+            className="technician"
+          />
+
+          <div className="technician-glow" />
+        </div>
+
+        {/* BOTTOM CONTACT */}
+        <div className="contact-buttons">
+          <a
+            href="tel:+6280000000000"
+            className="contact-button"
+          >
+            <Phone size={28} />
+            <span>Hubungi Kami</span>
+          </a>
+
+          <a
+            href="https://wa.me/6280000000000"
+            className="contact-button"
+          >
+            <MessageCircle size={29} />
+            <span>Hubungi Kami</span>
+          </a>
+        </div>
+
+        <div className="slider-dots">
+          <span className="active" />
+          <span />
+          <span />
+        </div>
+      </section>
+    </main>
+  );
+      }
