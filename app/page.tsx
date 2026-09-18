@@ -1,77 +1,41 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Menu,
-  X,
-  MessageCircle,
-  Phone,
-  Snowflake,
-  ShieldCheck,
-  Clock3,
-  ChevronDown,
-} from "lucide-react";
 
-const phone = "085773334303";
-const whatsapp = "6285773334303";
-
-const areas = [
-  {
-    name: "DKI Jakarta",
-    links: [
-      ["Service AC Jakarta Selatan", "/jakarta-selatan"],
-      ["Service AC Jakarta Timur", "/jakarta-timur"],
-      ["Service AC Jakarta Barat", "/jakarta-barat"],
-      ["Service AC Jakarta Utara", "/jakarta-utara"],
-      ["Service AC Jakarta Pusat", "/jakarta-pusat"],
-    ],
-  },
-  {
-    name: "Banten",
-    links: [
-      ["Service AC Tangerang Selatan", "/tangerang-selatan"],
-      ["Service AC Kota Tangerang", "/tangerang"],
-      ["Service AC Kabupaten Tangerang", "/kabupaten-tangerang"],
-    ],
-  },
-  {
-    name: "Jawa Barat",
-    links: [
-      ["Service AC Bekasi", "/bekasi"],
-      ["Service AC Depok", "/depok"],
-      ["Service AC Bogor", "/bogor"],
-    ],
-  },
-];
+const areas = {
+  "DKI Jakarta": [
+    ["Service AC Jakarta Selatan", "/jakarta-selatan"],
+    ["Service AC Jakarta Timur", "/jakarta-timur"],
+    ["Service AC Jakarta Barat", "/jakarta-barat"],
+    ["Service AC Jakarta Utara", "/jakarta-utara"],
+    ["Service AC Jakarta Pusat", "/jakarta-pusat"],
+  ],
+  Banten: [
+    ["Service AC Tangerang Selatan", "/tangerang-selatan"],
+    ["Service AC Kota Tangerang", "/tangerang"],
+    ["Service AC Kabupaten Tangerang", "/kabupaten-tangerang"],
+  ],
+  "Jawa Barat": [
+    ["Service AC Bekasi", "/bekasi"],
+    ["Service AC Depok", "/depok"],
+    ["Service AC Bogor", "/bogor"],
+  ],
+};
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [layananOpen, setLayananOpen] = useState(false);
 
   return (
-    <main className="home">
-
+    <main className="site">
       {/* HEADER */}
       <header className="header">
-        <div className="logo-area">
-          <div className="logo-mark">S</div>
-
+        <a href="/" className="brand">
+          <div className="brand-mark">SJS</div>
           <div>
-            <div className="brand-name">
-              SABIT JAYA <span>SERVICE</span>
-            </div>
-            <div className="brand-tagline">
-              Solusi AC Anda
-            </div>
+            <strong>Sabit Jaya</strong>
+            <span>Service</span>
           </div>
-        </div>
-
-        <a
-          href={`https://wa.me/${whatsapp}`}
-          className="header-whatsapp"
-        >
-          <MessageCircle size={20} />
-          WhatsApp
         </a>
 
         <button
@@ -79,414 +43,619 @@ export default function Home() {
           onClick={() => setMenuOpen(true)}
           aria-label="Buka menu"
         >
-          <Menu size={28} />
+          <span />
+          <span />
+          <span />
         </button>
       </header>
 
-      {/* HERO */}
-      <section className="hero">
-
-        <div className="hero-content">
-          <div className="eyebrow">
-            SERVICE AC PROFESIONAL
-          </div>
-
-          <h1>
-            Service AC 24 Jam
-            <strong>Jabodetabek</strong>
-            <span>Murah Bergaransi</span>
-          </h1>
-
-          <p className="hero-description">
-            Udara panas bikin nggak nyaman?
-            <br />
-            Kami siap bantu! Tim profesional kami akan
-            buat AC Anda kembali sejuk dan optimal —
-            cepat, bersih, dan bergaransi.
-          </p>
-
-          {/* FITUR */}
-          <div className="features">
-
-            <div className="feature-card">
-              <div className="feature-icon">
-                <Snowflake size={27} />
-              </div>
-              <div>
-                <b>AC Kembali</b>
-                <span>Sejuk Optimal</span>
-              </div>
-            </div>
-
-            <div className="feature-card">
-              <div className="feature-icon">
-                <ShieldCheck size={27} />
-              </div>
-              <div>
-                <b>Teknisi</b>
-                <span>Profesional</span>
-              </div>
-            </div>
-
-            <div className="feature-card">
-              <div className="feature-icon">
-                <Clock3 size={27} />
-              </div>
-              <div>
-                <b>Layanan</b>
-                <span>24 Jam</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        {/* FOTO */}
-        <div className="technician-area">
-          <img
-            src="/home.png"
-            alt="Sabit Jaya Service"
-            className="technician"
-          />
-        </div>
-
-      </section>
-
-      {/* TOMBOL FLOATING */}
-      <div className="contact-buttons">
-
-        <a
-          href={`tel:${phone}`}
-          className="contact-button phone-button"
-        >
-          <Phone size={24} />
-          <span>Hubungi Kami</span>
-        </a>
-
-        <a
-          href={`https://wa.me/${whatsapp}`}
-          className="contact-button whatsapp-button"
-        >
-          <MessageCircle size={25} />
-          <span>Hubungi Kami</span>
-        </a>
-
-      </div>
-
       {/* MENU */}
       {menuOpen && (
-        <div
-          className="menu-overlay"
-          onClick={() => setMenuOpen(false)}
-        >
-          <div
+        <div className="menu-overlay" onClick={() => setMenuOpen(false)}>
+          <aside
             className="menu-panel"
             onClick={(e) => e.stopPropagation()}
           >
-
-            {/* HEADER MENU */}
             <div className="menu-header">
-
-              <div>
-                <div className="menu-title">
-                  SABIT JAYA <span>SERVICE</span>
-                </div>
-
-                <div className="menu-subtitle">
-                  Solusi AC Anda
-                </div>
-              </div>
+              <strong>Menu</strong>
 
               <button
-                className="close-menu"
+                className="close-button"
                 onClick={() => setMenuOpen(false)}
+                aria-label="Tutup menu"
               >
-                <X size={25} />
+                ×
               </button>
-
             </div>
 
-            {/* ISI MENU */}
-            <div className="menu-content">
-
-              <a
-                href="/"
-                className="menu-link"
-              >
+            <nav className="menu-list">
+              <a href="/" onClick={() => setMenuOpen(false)}>
                 Beranda
               </a>
 
               <button
-                className="layanan-button"
-                onClick={() =>
-                  setLayananOpen(!layananOpen)
-                }
+                className="menu-dropdown-button"
+                onClick={() => setLayananOpen(!layananOpen)}
               >
                 <span>Layanan</span>
-                <ChevronDown
-                  size={22}
-                  className={
-                    layananOpen ? "rotate" : ""
-                  }
-                />
+                <span>{layananOpen ? "−" : "+"}</span>
               </button>
 
               {layananOpen && (
                 <div className="area-list">
+                  {Object.entries(areas).map(([province, locations]) => (
+                    <div className="province" key={province}>
+                      <div className="province-title">{province}</div>
 
-                  {areas.map((area) => (
-                    <div
-                      className="area-group"
-                      key={area.name}
-                    >
-
-                      <div className="province">
-                        {area.name}
-                      </div>
-
-                      {area.links.map(
-                        ([label, href]) => (
-                          <a
-                            key={href}
-                            href={href}
-                            className="area-link"
-                          >
-                            {label}
-                          </a>
-                        )
-                      )}
-
+                      {locations.map(([name, path]) => (
+                        <a
+                          key={path}
+                          href={path}
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          {name}
+                        </a>
+                      ))}
                     </div>
                   ))}
-
                 </div>
               )}
 
-              <a
-                href="/harga"
-                className="menu-link"
-              >
+              <a href="#harga" onClick={() => setMenuOpen(false)}>
                 Daftar Harga
               </a>
 
-              <a
-                href="/galeri"
-                className="menu-link"
-              >
+              <a href="#galeri" onClick={() => setMenuOpen(false)}>
                 Galeri Pengerjaan
               </a>
-
-            </div>
-          </div>
+            </nav>
+          </aside>
         </div>
       )}
 
-      {/* CSS SEDERHANA */}
+      {/* HERO */}
+      <section className="hero">
+        <div className="hero-content">
+          <div className="hero-text">
+            <div className="badge">LAYANAN AC PROFESIONAL</div>
+
+            <h1>
+              Service AC
+              <br />
+              <span>24 Jam</span>
+            </h1>
+
+            <h2>
+              Jabodetabek
+              <br />
+              <b>Murah Bergaransi</b>
+            </h2>
+
+            <p>
+              Udara panas bikin nggak nyaman? Kami siap bantu! Tim profesional
+              kami akan buat AC Anda kembali sejuk dan optimal — cepat, bersih,
+              dan bergaransi.
+            </p>
+          </div>
+
+          <div className="hero-image-wrap">
+            <img
+              src="/home.png"
+              alt="Teknisi Sabit Jaya Service"
+              className="hero-image"
+            />
+          </div>
+        </div>
+
+        {/* FEATURE */}
+        <div className="features">
+          <div className="feature-card">
+            <div className="feature-icon">❄</div>
+            <strong>AC Kembali</strong>
+            <span>Sejuk Optimal</span>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">✓</div>
+            <strong>Teknisi</strong>
+            <span>Profesional</span>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">24</div>
+            <strong>Layanan</strong>
+            <span>24 Jam</span>
+          </div>
+        </div>
+      </section>
+
+      {/* TEMPAT SECTION BERIKUTNYA */}
+      <section className="placeholder">
+        <p>Bagian Tentang Kami akan kita buat di tahap berikutnya.</p>
+      </section>
+
+      {/* FLOATING CONTACT */}
+      <div className="floating-contact">
+        <a href="tel:085773334303" className="floating-phone">
+          <span>☎</span>
+          <b>Telepon</b>
+        </a>
+
+        <a
+          href="https://wa.me/6285773334303"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="floating-wa"
+        >
+          <span>✆</span>
+          <b>WhatsApp</b>
+        </a>
+      </div>
+
       <style jsx global>{`
+        * {
+          box-sizing: border-box;
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+
+        body {
+          margin: 0;
+          background: #09051a;
+          color: white;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+
+        button {
+          font-family: inherit;
+        }
+
+        .site {
+          min-height: 100vh;
+          overflow-x: hidden;
+          background:
+            radial-gradient(
+              circle at 75% 15%,
+              rgba(126, 54, 255, 0.35),
+              transparent 30%
+            ),
+            radial-gradient(
+              circle at 15% 65%,
+              rgba(72, 31, 170, 0.3),
+              transparent 30%
+            ),
+            linear-gradient(145deg, #080416, #16082f 50%, #09051a);
+        }
+
+        /* HEADER */
 
         .header {
-          position: relative;
-          z-index: 10;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 76px;
+          padding: 16px 5%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          z-index: 50;
+          background: rgba(10, 5, 25, 0.5);
+          backdrop-filter: blur(12px);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .brand {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .brand-mark {
+          width: 45px;
+          height: 45px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid rgba(255, 255, 255, 0.35);
+          border-radius: 8px;
+          font-size: 15px;
+          font-weight: 900;
+          background: linear-gradient(135deg, #4920a8, #8d4cff);
+        }
+
+        .brand strong {
+          display: block;
+          font-size: 17px;
+        }
+
+        .brand span {
+          display: block;
+          margin-top: 2px;
+          color: #bba5ff;
+          font-size: 12px;
         }
 
         .menu-button {
+          width: 46px;
+          height: 46px;
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          border-radius: 8px;
+          background: rgba(255, 255, 255, 0.08);
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
-          border: 0;
-          background: transparent;
-          color: white;
+          gap: 5px;
           cursor: pointer;
         }
 
+        .menu-button span {
+          width: 22px;
+          height: 2px;
+          background: white;
+          border-radius: 2px;
+        }
+
+        /* HERO */
+
         .hero {
+          min-height: 760px;
+          padding: 130px 5% 130px;
           position: relative;
         }
 
-        .technician-area {
+        .hero-content {
+          max-width: 1180px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1fr 0.9fr;
+          align-items: center;
+          gap: 45px;
+        }
+
+        .badge {
+          display: inline-block;
+          padding: 8px 13px;
+          border: 1px solid rgba(171, 124, 255, 0.45);
+          border-radius: 5px;
+          background: rgba(112, 54, 220, 0.15);
+          color: #cbb3ff;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 1px;
+        }
+
+        .hero h1 {
+          margin: 18px 0 8px;
+          font-size: clamp(42px, 6vw, 76px);
+          line-height: 0.98;
+          letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+          color: #a36cff;
+        }
+
+        .hero h2 {
+          margin: 0 0 20px;
+          font-size: clamp(24px, 3vw, 38px);
+          line-height: 1.15;
+        }
+
+        .hero h2 b {
+          color: #b98cff;
+        }
+
+        .hero p {
+          max-width: 590px;
+          margin: 0;
+          color: #d0c8df;
+          font-size: 16px;
+          line-height: 1.75;
+        }
+
+        .hero-image-wrap {
           display: flex;
           justify-content: center;
           align-items: center;
         }
 
-        .technician {
-          width: 100%;
-          max-width: 540px;
-          height: auto;
-          display: block;
+        .hero-image {
+          width: min(100%, 500px);
+          max-height: 530px;
           object-fit: contain;
+          filter: drop-shadow(0 25px 45px rgba(122, 62, 255, 0.35));
         }
 
-        /* TOMBOL TETAP DI LAYAR */
-        .contact-buttons {
+        /* FEATURES */
+
+        .features {
+          max-width: 1050px;
+          margin: 30px auto 0;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 15px;
+        }
+
+        .feature-card {
+          min-height: 110px;
+          padding: 18px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          border: 1px solid rgba(255, 255, 255, 0.13);
+          border-radius: 8px;
+          background: rgba(255, 255, 255, 0.055);
+          backdrop-filter: blur(8px);
+        }
+
+        .feature-icon {
+          width: 34px;
+          height: 34px;
+          margin-bottom: 7px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 7px;
+          background: #7138d8;
+          font-size: 13px;
+          font-weight: 900;
+        }
+
+        .feature-card strong {
+          font-size: 14px;
+        }
+
+        .feature-card span {
+          margin-top: 3px;
+          color: #bcaed0;
+          font-size: 12px;
+        }
+
+        /* TEMPORARY */
+
+        .placeholder {
+          min-height: 220px;
+          padding: 80px 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-top: 1px solid rgba(255, 255, 255, 0.06);
+          background: rgba(0, 0, 0, 0.15);
+        }
+
+        .placeholder p {
+          color: #aaa0ba;
+          font-size: 14px;
+        }
+
+        /* MENU */
+
+        .menu-overlay {
+          position: fixed;
+          inset: 0;
+          z-index: 100;
+          background: rgba(0, 0, 0, 0.6);
+          backdrop-filter: blur(4px);
+        }
+
+        .menu-panel {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: min(390px, 88%);
+          height: 100%;
+          padding: 25px;
+          overflow-y: auto;
+          background: #ffffff;
+          color: #171221;
+          box-shadow: -15px 0 45px rgba(0, 0, 0, 0.35);
+        }
+
+        .menu-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-bottom: 20px;
+          border-bottom: 1px solid #e7e2ed;
+          font-size: 22px;
+        }
+
+        .close-button {
+          width: 42px;
+          height: 42px;
+          border: 0;
+          border-radius: 7px;
+          background: #f0ebf7;
+          color: #3d176d;
+          font-size: 28px;
+          cursor: pointer;
+        }
+
+        .menu-list {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .menu-list > a,
+        .menu-dropdown-button {
+          width: 100%;
+          padding: 17px 4px;
+          border: 0;
+          border-bottom: 1px solid #eeeaf2;
+          background: transparent;
+          color: #241b30;
+          font-size: 16px;
+          font-weight: 700;
+          text-align: left;
+          cursor: pointer;
+        }
+
+        .menu-dropdown-button {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .area-list {
+          padding: 5px 0 10px 12px;
+        }
+
+        .province {
+          padding: 8px 0 12px;
+        }
+
+        .province-title {
+          margin-bottom: 5px;
+          color: #6330b4;
+          font-size: 14px;
+          font-weight: 800;
+        }
+
+        .province a {
+          display: block;
+          padding: 8px 0;
+          color: #51495b;
+          font-size: 13px;
+          line-height: 1.4;
+        }
+
+        .province a:hover {
+          color: #7138d8;
+        }
+
+        /* FLOATING CONTACT */
+
+        .floating-contact {
           position: fixed;
           left: 50%;
           bottom: 15px;
           transform: translateX(-50%);
-          width: calc(100% - 30px);
-          max-width: 900px;
+          width: min(390px, calc(100% - 24px));
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 10px;
+          gap: 8px;
           z-index: 9999;
         }
 
-        .contact-button {
-          min-height: 60px;
+        .floating-contact a {
+          min-height: 48px;
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 8px;
-          border-radius: 15px;
+          border-radius: 8px;
           color: white;
-          font-weight: 700;
-          text-decoration: none;
-          border: 2px solid rgba(255,255,255,.7);
-          box-shadow: 0 8px 25px rgba(0,0,0,.25);
+          font-size: 13px;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
         }
 
-        .phone-button {
-          background: #1685e8;
+        .floating-phone {
+          background: #2563eb;
         }
 
-        .whatsapp-button {
-          background: #19c964;
+        .floating-wa {
+          background: #16a34a;
         }
 
-        /* MENU */
-        .menu-overlay {
-          position: fixed;
-          inset: 0;
-          z-index: 10000;
-          background: rgba(0,0,0,.45);
-          backdrop-filter: blur(6px);
-        }
-
-        .menu-panel {
-          margin-left: auto;
-          width: min(100%, 480px);
-          height: 100%;
-          background: white;
-          color: #222;
-          overflow-y: auto;
-        }
-
-        .menu-header {
-          padding: 22px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          border-bottom: 1px solid #eee;
-        }
-
-        .menu-title {
+        .floating-contact span {
           font-size: 18px;
-          font-weight: 800;
         }
 
-        .menu-title span {
-          color: #2584d5;
-        }
+        /* MOBILE */
 
-        .menu-subtitle {
-          font-size: 10px;
-          color: #888;
-          margin-top: 3px;
-        }
-
-        .close-menu {
-          width: 42px;
-          height: 42px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: white;
-          border: 1px solid #ddd;
-          border-radius: 10px;
-          color: #68727e;
-          cursor: pointer;
-        }
-
-        .menu-content {
-          padding: 20px 22px 120px;
-        }
-
-        .menu-link {
-          display: flex;
-          align-items: center;
-          min-height: 58px;
-          padding: 0 20px;
-          font-size: 18px;
-          color: #222;
-          text-decoration: none;
-        }
-
-        .layanan-button {
-          width: 100%;
-          min-height: 60px;
-          padding: 0 20px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          border: 0;
-          border-radius: 13px;
-          background: #f1f7fd;
-          color: #2584d5;
-          font-size: 19px;
-          font-weight: 700;
-          cursor: pointer;
-        }
-
-        .rotate {
-          transform: rotate(180deg);
-        }
-
-        .area-list {
-          margin: 0 18px;
-          padding: 10px 0 10px 18px;
-          border-left: 2px solid #e0e7ee;
-        }
-
-        .area-group {
-          margin-bottom: 20px;
-        }
-
-        .province {
-          color: #2584d5;
-          font-size: 17px;
-          font-weight: 800;
-          margin-bottom: 7px;
-        }
-
-        .area-link {
-          display: block;
-          padding: 8px 0;
-          color: #555;
-          font-size: 15px;
-          text-decoration: none;
-        }
-
-        @media (max-width: 600px) {
-          .header-whatsapp {
-            font-size: 10px;
+        @media (max-width: 760px) {
+          .header {
+            height: 68px;
+            padding: 12px 16px;
           }
 
-          .contact-button {
-            min-height: 60px;
-            font-size: 14px;
+          .brand-mark {
+            width: 40px;
+            height: 40px;
           }
 
           .hero {
-            padding-bottom: 100px;
+            min-height: auto;
+            padding: 105px 16px 100px;
           }
 
-          .menu-panel {
-            width: 100%;
+          .hero-content {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+
+          .hero-text {
+            text-align: center;
+          }
+
+          .hero p {
+            margin: 0 auto;
+            font-size: 14px;
+            line-height: 1.65;
+          }
+
+          .hero-image-wrap {
+            order: -1;
+          }
+
+          .hero-image {
+            width: min(85%, 360px);
+            max-height: 350px;
+          }
+
+          .hero h1 {
+            font-size: 45px;
+          }
+
+          .hero h2 {
+            font-size: 25px;
+          }
+
+          .features {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 7px;
+            margin-top: 30px;
+          }
+
+          .feature-card {
+            min-height: 95px;
+            padding: 10px 5px;
+          }
+
+          .feature-icon {
+            width: 29px;
+            height: 29px;
+            font-size: 11px;
+          }
+
+          .feature-card strong {
+            font-size: 11px;
+          }
+
+          .feature-card span {
+            font-size: 9px;
+          }
+
+          .floating-contact {
+            bottom: 10px;
+          }
+
+          .floating-contact a {
+            min-height: 46px;
           }
         }
-
       `}</style>
-
     </main>
   );
 }
