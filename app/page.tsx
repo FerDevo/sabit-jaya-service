@@ -28,28 +28,44 @@ export default function Home() {
 
   return (
     <main className="site">
-      {/* HEADER */}
+      {/* ================= HEADER ================= */}
       <header className="header">
         <a href="/" className="brand">
-          <div className="brand-mark">SJS</div>
-          <div>
-            <strong>Sabit Jaya</strong>
-            <span>Service</span>
+          <div className="brand-logo">
+            <div className="brand-sjs">SJS</div>
+            <div className="brand-line" />
+          </div>
+
+          <div className="brand-name">
+            <strong>SABIT JAYA</strong>
+            <span>SERVICE</span>
           </div>
         </a>
 
-        <button
-          className="menu-button"
-          onClick={() => setMenuOpen(true)}
-          aria-label="Buka menu"
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        <div className="header-right">
+          <a
+            href="https://wa.me/6285773334303"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="header-wa"
+          >
+            <span className="wa-icon">◉</span>
+            WhatsApp
+          </a>
+
+          <button
+            className="menu-button"
+            onClick={() => setMenuOpen(true)}
+            aria-label="Buka menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </header>
 
-      {/* MENU */}
+      {/* ================= MENU ================= */}
       {menuOpen && (
         <div className="menu-overlay" onClick={() => setMenuOpen(false)}>
           <aside
@@ -113,23 +129,17 @@ export default function Home() {
         </div>
       )}
 
-      {/* HERO */}
+      {/* ================= HERO ================= */}
       <section className="hero">
-        <div className="hero-content">
+        <div className="hero-inner">
           <div className="hero-text">
-            <div className="badge">LAYANAN AC PROFESIONAL</div>
-
             <h1>
-              Service AC
+              Service AC 24 Jam
               <br />
-              <span>24 Jam</span>
+              <span>Terdekat</span>
+              <br />
+              <span>Murah Bergaransi</span>
             </h1>
-
-            <h2>
-              Jabodetabek
-              <br />
-              <b>Murah Bergaransi</b>
-            </h2>
 
             <p>
               Udara panas bikin nggak nyaman? Kami siap bantu! Tim profesional
@@ -146,39 +156,18 @@ export default function Home() {
             />
           </div>
         </div>
-
-        {/* FEATURE */}
-        <div className="features">
-          <div className="feature-card">
-            <div className="feature-icon">❄</div>
-            <strong>AC Kembali</strong>
-            <span>Sejuk Optimal</span>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon">✓</div>
-            <strong>Teknisi</strong>
-            <span>Profesional</span>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon">24</div>
-            <strong>Layanan</strong>
-            <span>24 Jam</span>
-          </div>
-        </div>
       </section>
 
-      {/* TEMPAT SECTION BERIKUTNYA */}
+      {/* ================= TEMPAT SECTION BERIKUTNYA ================= */}
       <section className="placeholder">
         <p>Bagian Tentang Kami akan kita buat di tahap berikutnya.</p>
       </section>
 
-      {/* FLOATING CONTACT */}
+      {/* ================= FLOATING CONTACT ================= */}
       <div className="floating-contact">
         <a href="tel:085773334303" className="floating-phone">
           <span>☎</span>
-          <b>Telepon</b>
+          <b>Hubungi Kami</b>
         </a>
 
         <a
@@ -187,11 +176,12 @@ export default function Home() {
           rel="noopener noreferrer"
           className="floating-wa"
         >
-          <span>✆</span>
-          <b>WhatsApp</b>
+          <span>◉</span>
+          <b>Hubungi Kami</b>
         </a>
       </div>
 
+      {/* ================= CSS ================= */}
       <style jsx global>{`
         * {
           box-sizing: border-box;
@@ -203,9 +193,12 @@ export default function Home() {
 
         body {
           margin: 0;
-          background: #09051a;
-          color: white;
-          font-family: Arial, Helvetica, sans-serif;
+          background: #120526;
+          color: #ffffff;
+          font-family:
+            Arial,
+            Helvetica,
+            sans-serif;
         }
 
         a {
@@ -217,78 +210,163 @@ export default function Home() {
           font-family: inherit;
         }
 
+        /* ================= SITE ================= */
+
         .site {
           min-height: 100vh;
           overflow-x: hidden;
           background:
             radial-gradient(
-              circle at 75% 15%,
-              rgba(126, 54, 255, 0.35),
+              circle at 85% 10%,
+              rgba(166, 75, 255, 0.48),
               transparent 30%
             ),
             radial-gradient(
               circle at 15% 65%,
-              rgba(72, 31, 170, 0.3),
-              transparent 30%
+              rgba(100, 30, 190, 0.42),
+              transparent 32%
             ),
-            linear-gradient(145deg, #080416, #16082f 50%, #09051a);
+            linear-gradient(
+              150deg,
+              #16072d 0%,
+              #3a0b78 48%,
+              #1b063d 100%
+            );
         }
 
-        /* HEADER */
+        /* ================= HEADER ================= */
 
         .header {
-          position: absolute;
-          top: 0;
-          left: 0;
+          position: relative;
           width: 100%;
           height: 76px;
-          padding: 16px 5%;
+          padding: 9px 5%;
           display: flex;
           align-items: center;
           justify-content: space-between;
           z-index: 50;
-          background: rgba(10, 5, 25, 0.5);
-          backdrop-filter: blur(12px);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          background: #ffffff;
+          border-bottom: 1px solid #dddddd;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
         }
 
         .brand {
           display: flex;
           align-items: center;
           gap: 10px;
+          min-width: 0;
         }
 
-        .brand-mark {
-          width: 45px;
-          height: 45px;
+        .brand-logo {
+          width: 58px;
+          height: 52px;
+          position: relative;
           display: flex;
           align-items: center;
           justify-content: center;
-          border: 1px solid rgba(255, 255, 255, 0.35);
-          border-radius: 8px;
-          font-size: 15px;
+        }
+
+        .brand-sjs {
+          font-size: 25px;
+          line-height: 1;
           font-weight: 900;
-          background: linear-gradient(135deg, #4920a8, #8d4cff);
+          font-style: italic;
+          letter-spacing: -2px;
+          background: linear-gradient(
+            135deg,
+            #08a8e8 0%,
+            #1469db 45%,
+            #2739b8 100%
+          );
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
         }
 
-        .brand strong {
-          display: block;
-          font-size: 17px;
+        .brand-line {
+          position: absolute;
+          width: 48px;
+          height: 5px;
+          left: 5px;
+          bottom: 5px;
+          border-radius: 10px;
+          background: linear-gradient(
+            90deg,
+            #15c7ee,
+            #1478e7,
+            #4334c8
+          );
+          transform: skewX(-25deg);
         }
 
-        .brand span {
-          display: block;
-          margin-top: 2px;
-          color: #bba5ff;
-          font-size: 12px;
+        .brand-name {
+          display: flex;
+          flex-direction: column;
+          line-height: 1;
+        }
+
+        .brand-name strong {
+          font-size: 18px;
+          font-weight: 900;
+          font-style: italic;
+          letter-spacing: -0.5px;
+          background: linear-gradient(
+            90deg,
+            #173cba,
+            #087ee1,
+            #1f38bd
+          );
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+
+        .brand-name span {
+          margin-top: 7px;
+          color: #666666;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 4px;
+          text-align: center;
+        }
+
+        .header-right {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .header-wa {
+          min-width: 125px;
+          height: 42px;
+          padding: 0 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 7px;
+          border-radius: 4px;
+          color: #ffffff;
+          background: linear-gradient(
+            90deg,
+            #159fc1 0%,
+            #16a970 52%,
+            #8fa800 100%
+          );
+          font-size: 13px;
+          font-weight: 800;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
+
+        .wa-icon {
+          font-size: 14px;
         }
 
         .menu-button {
-          width: 46px;
-          height: 46px;
-          border: 1px solid rgba(255, 255, 255, 0.25);
-          border-radius: 8px;
-          background: rgba(255, 255, 255, 0.08);
+          width: 45px;
+          height: 45px;
+          padding: 0;
+          border: 0;
+          background: transparent;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -298,154 +376,95 @@ export default function Home() {
         }
 
         .menu-button span {
-          width: 22px;
-          height: 2px;
-          background: white;
+          width: 25px;
+          height: 3px;
           border-radius: 2px;
+          background: #222222;
         }
 
-        /* HERO */
+        /* ================= HERO ================= */
 
         .hero {
-          min-height: 760px;
-          padding: 130px 5% 130px;
-          position: relative;
+          width: 100%;
+          min-height: calc(100vh - 76px);
+          padding: 72px 5% 115px;
         }
 
-        .hero-content {
-          max-width: 1180px;
+        .hero-inner {
+          width: 100%;
+          max-width: 850px;
           margin: 0 auto;
-          display: grid;
-          grid-template-columns: 1fr 0.9fr;
-          align-items: center;
-          gap: 45px;
         }
 
-        .badge {
-          display: inline-block;
-          padding: 8px 13px;
-          border: 1px solid rgba(171, 124, 255, 0.45);
-          border-radius: 5px;
-          background: rgba(112, 54, 220, 0.15);
-          color: #cbb3ff;
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 1px;
+        .hero-text {
+          width: 100%;
         }
 
         .hero h1 {
-          margin: 18px 0 8px;
-          font-size: clamp(42px, 6vw, 76px);
-          line-height: 0.98;
-          letter-spacing: -2px;
+          margin: 0;
+          font-size: clamp(42px, 7vw, 74px);
+          line-height: 1.08;
+          font-weight: 900;
+          letter-spacing: -2.5px;
+          color: #ffffff;
         }
 
         .hero h1 span {
-          color: #a36cff;
-        }
-
-        .hero h2 {
-          margin: 0 0 20px;
-          font-size: clamp(24px, 3vw, 38px);
-          line-height: 1.15;
-        }
-
-        .hero h2 b {
-          color: #b98cff;
+          color: #ffffff;
         }
 
         .hero p {
-          max-width: 590px;
-          margin: 0;
-          color: #d0c8df;
-          font-size: 16px;
-          line-height: 1.75;
+          max-width: 720px;
+          margin: 34px 0 0;
+          color: rgba(255, 255, 255, 0.9);
+          font-size: 19px;
+          line-height: 1.65;
+          font-weight: 400;
         }
 
         .hero-image-wrap {
+          width: 100%;
+          margin-top: 42px;
           display: flex;
           justify-content: center;
-          align-items: center;
         }
 
         .hero-image {
-          width: min(100%, 500px);
-          max-height: 530px;
+          display: block;
+          width: 100%;
+          max-width: 760px;
+          max-height: 650px;
           object-fit: contain;
-          filter: drop-shadow(0 25px 45px rgba(122, 62, 255, 0.35));
-        }
-
-        /* FEATURES */
-
-        .features {
-          max-width: 1050px;
-          margin: 30px auto 0;
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 15px;
-        }
-
-        .feature-card {
-          min-height: 110px;
-          padding: 18px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          border: 1px solid rgba(255, 255, 255, 0.13);
           border-radius: 8px;
-          background: rgba(255, 255, 255, 0.055);
-          backdrop-filter: blur(8px);
+          filter: drop-shadow(
+            0 22px 35px rgba(0, 0, 0, 0.35)
+          );
         }
 
-        .feature-icon {
-          width: 34px;
-          height: 34px;
-          margin-bottom: 7px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 7px;
-          background: #7138d8;
-          font-size: 13px;
-          font-weight: 900;
-        }
-
-        .feature-card strong {
-          font-size: 14px;
-        }
-
-        .feature-card span {
-          margin-top: 3px;
-          color: #bcaed0;
-          font-size: 12px;
-        }
-
-        /* TEMPORARY */
+        /* ================= PLACEHOLDER ================= */
 
         .placeholder {
-          min-height: 220px;
+          min-height: 250px;
           padding: 80px 20px;
           display: flex;
           align-items: center;
           justify-content: center;
-          border-top: 1px solid rgba(255, 255, 255, 0.06);
-          background: rgba(0, 0, 0, 0.15);
+          background: #ffffff;
+          color: #777777;
         }
 
         .placeholder p {
-          color: #aaa0ba;
+          margin: 0;
           font-size: 14px;
         }
 
-        /* MENU */
+        /* ================= MENU ================= */
 
         .menu-overlay {
           position: fixed;
           inset: 0;
           z-index: 100;
-          background: rgba(0, 0, 0, 0.6);
+          background: rgba(0, 0, 0, 0.58);
           backdrop-filter: blur(4px);
         }
 
@@ -534,125 +553,151 @@ export default function Home() {
           color: #7138d8;
         }
 
-        /* FLOATING CONTACT */
+        /* ================= FLOATING CONTACT ================= */
 
         .floating-contact {
           position: fixed;
           left: 50%;
-          bottom: 15px;
+          bottom: 12px;
           transform: translateX(-50%);
-          width: min(390px, calc(100% - 24px));
+          width: min(680px, calc(100% - 20px));
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 8px;
+          gap: 6px;
           z-index: 9999;
         }
 
         .floating-contact a {
-          min-height: 48px;
+          min-height: 50px;
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 8px;
-          border-radius: 8px;
-          color: white;
-          font-size: 13px;
-          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+          gap: 9px;
+          border-radius: 7px;
+          color: #ffffff;
+          font-size: 14px;
+          box-shadow: 0 7px 22px rgba(0, 0, 0, 0.3);
         }
 
         .floating-phone {
-          background: #2563eb;
+          background: linear-gradient(
+            90deg,
+            #1474ee,
+            #0875ff
+          );
         }
 
         .floating-wa {
-          background: #16a34a;
+          background: linear-gradient(
+            90deg,
+            #13a94e,
+            #0bb95c
+          );
         }
 
         .floating-contact span {
-          font-size: 18px;
+          font-size: 19px;
         }
 
-        /* MOBILE */
+        /* ================= MOBILE ================= */
 
         @media (max-width: 760px) {
           .header {
-            height: 68px;
-            padding: 12px 16px;
+            height: 72px;
+            padding: 8px 15px;
           }
 
-          .brand-mark {
+          .brand {
+            gap: 7px;
+          }
+
+          .brand-logo {
+            width: 48px;
+            height: 47px;
+          }
+
+          .brand-sjs {
+            font-size: 22px;
+          }
+
+          .brand-line {
+            width: 40px;
+            height: 4px;
+            left: 4px;
+            bottom: 5px;
+          }
+
+          .brand-name strong {
+            font-size: 15px;
+          }
+
+          .brand-name span {
+            margin-top: 5px;
+            font-size: 9px;
+            letter-spacing: 3px;
+          }
+
+          .header-right {
+            gap: 5px;
+          }
+
+          .header-wa {
+            min-width: 108px;
+            height: 39px;
+            padding: 0 10px;
+            font-size: 12px;
+          }
+
+          .menu-button {
             width: 40px;
             height: 40px;
           }
 
+          .menu-button span {
+            width: 23px;
+            height: 3px;
+          }
+
           .hero {
             min-height: auto;
-            padding: 105px 16px 100px;
+            padding: 48px 20px 105px;
           }
 
-          .hero-content {
-            grid-template-columns: 1fr;
-            gap: 20px;
+          .hero-inner {
+            max-width: 100%;
           }
 
-          .hero-text {
-            text-align: center;
+          .hero h1 {
+            font-size: clamp(39px, 11vw, 53px);
+            line-height: 1.05;
+            letter-spacing: -1.8px;
           }
 
           .hero p {
-            margin: 0 auto;
-            font-size: 14px;
+            margin-top: 28px;
+            font-size: 16px;
             line-height: 1.65;
           }
 
           .hero-image-wrap {
-            order: -1;
-          }
-
-          .hero-image {
-            width: min(85%, 360px);
-            max-height: 350px;
-          }
-
-          .hero h1 {
-            font-size: 45px;
-          }
-
-          .hero h2 {
-            font-size: 25px;
-          }
-
-          .features {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 7px;
             margin-top: 30px;
           }
 
-          .feature-card {
-            min-height: 95px;
-            padding: 10px 5px;
-          }
-
-          .feature-icon {
-            width: 29px;
-            height: 29px;
-            font-size: 11px;
-          }
-
-          .feature-card strong {
-            font-size: 11px;
-          }
-
-          .feature-card span {
-            font-size: 9px;
+          .hero-image {
+            width: 100%;
+            max-height: none;
+            border-radius: 7px;
           }
 
           .floating-contact {
-            bottom: 10px;
+            width: calc(100% - 14px);
+            bottom: 8px;
+            gap: 5px;
           }
 
           .floating-contact a {
-            min-height: 46px;
+            min-height: 48px;
+            font-size: 13px;
           }
         }
       `}</style>
