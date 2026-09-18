@@ -1,44 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+import {
+  Menu,
+  MessageCircle,
+  Phone,
+  Snowflake,
+  ShieldCheck,
+  Clock3,
+  ArrowRight,
+} from "lucide-react";
 
-:root {
-  --purple-dark: #26005c;
-  --purple: #5b16c9;
-  --purple-light: #9b4dff;
-  --green: #16c75a;
-  --white: #ffffff;
-}
+export default function Home() {
+  return (
+    <main className="home">
+      {/* HEADER */}
+      <header className="header">
+        <div className="logo-area">
+          <div className="logo-mark">S</div>
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+          <div>
+            <div className="brand-name">
+              SABIT JAYA <span>SERVICE</span>
+            </div>
+            <div className="brand-tagline">Solusi AC Anda</div>
+          </div>
+        </div>
 
-html {
-  scroll-behavior: smooth;
-}
+        <a
+          href="https://wa.me/6280000000000"
+          className="header-whatsapp"
+        >
+          <MessageCircle size={25} />
+          <span>WhatsApp</span>
+        </a>
 
-body {
-  font-family: 'Poppins', sans-serif;
-  color: var(--white);
-  background:
-    radial-gradient(circle at 85% 15%, rgba(168, 75, 255, 0.8), transparent 30%),
-    radial-gradient(circle at 10% 85%, rgba(91, 22, 201, 0.8), transparent 35%),
-    linear-gradient(135deg, #170038 0%, #3d078f 45%, #210052 100%);
-  min-height: 100vh;
-}
+        <button className="menu-button" aria-label="Menu">
+          <Menu size={32} />
+        </button>
+      </header>
 
-button,
-a {
-  font-family: inherit;
-}
+      {/* HERO */}
+      <section className="hero">
+        <div className="hero-glow glow-one" />
+        <div className="hero-glow glow-two" />
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+        <div className="hero-content">
+          <div className="eyebrow">
+            SERVICE AC PROFESIONAL
+          </div>
 
-img {
-  max-width: 100%;
-  display: block;
-}
+          <h1>
+            Service AC 24 Jam
+            <strong>Jabodetabek</strong>
+            Murah Bergaransi
+          </h1>
+
+          <p className="hero-description">
+            Udara panas bikin nggak nyaman?
+            <br />
+            Kami siap bantu! Tim profesional kami akan
+            buat AC Anda kembali sejuk dan optimal —
+            cepat, bersih, dan bergaransi.
+          </p>
+
+          {/* FEATURE */}
+          <div className="features">
+            <div className="feature-card">
+              <div className="feature-icon">
+                <Snowflake size={27} />
+              </div>
+              <div>
+                <b>AC Kembali</b>
+                <span>Sejuk Optimal</span>
+              </div>
+            </div>
+
+            <div className="feature-card">
+              <div className="feature-icon">
+                <ShieldCheck size={27} />
+              </div>
+              <div>
+                <b>Teknisi</b>
+                <span>Profesional</span>
+              </div>
+            </div>
+
+            <div className="feature-card">
+              <div className="feature-icon">
+                <Clock3 size={27} />
+              </div>
+              <div>
+                <b>Layanan</b>
+                <span>24 Jam</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* TECHNICIAN */}
+        <div className="technician-area">
+          <div className="ac-decoration">
+            <div className="ac-body">
+              <div className="ac-line" />
+              <div className="ac-line" />
+              <div className="ac-line" />
+            </div>
+
+            <div className="cold-air">
+              <Snowflake size={30} />
+              <Snowflake size={21} />
+              <Snowflake size={25} />
+            </div>
+          </div>
+
+          <img
+            src="/teknisi.png"
+            alt="Teknisi Sabit Jaya Service"
+            className="technician"
+          />
+
+          <div className="technician-glow" />
+        </div>
+
+        {/* BOTTOM CONTACT */}
+        <div className="contact-buttons">
+          <a
+            href="tel:+6280000000000"
+            className="contact-button"
+          >
+            <Phone size={28} />
+            <span>Hubungi Kami</span>
+          </a>
+
+          <a
+            href="https://wa.me/6280000000000"
+            className="contact-button"
+          >
+            <MessageCircle size={29} />
+            <span>Hubungi Kami</span>
+          </a>
+        </div>
+
+        <div className="slider-dots">
+          <span className="active" />
+          <span />
+          <span />
+        </div>
+      </section>
+    </main>
+  );
+  }
