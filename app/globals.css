@@ -1,150 +1,884 @@
-import {
-  Menu,
-  MessageCircle,
-  Phone,
-  Snowflake,
-  ShieldCheck,
-  Clock3,
-  ArrowRight,
-} from "lucide-react";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 
-export default function Home() {
-  return (
-    <main className="home">
-      {/* HEADER */}
-      <header className="header">
-        <div className="logo-area">
-          <div className="logo-mark">S</div>
+:root {
+  --purple-dark: #16002f;
+  --purple-deep: #25005a;
+  --purple: #5413b8;
+  --purple-bright: #792cff;
+  --purple-pink: #d65cff;
+  --green: #16c95a;
+  --green-dark: #07943c;
+  --white: #ffffff;
+}
 
-          <div>
-            <div className="brand-name">
-              SABIT JAYA <span>SERVICE</span>
-            </div>
-            <div className="brand-tagline">Solusi AC Anda</div>
-          </div>
-        </div>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-        <a
-          href="https://wa.me/6280000000000"
-          className="header-whatsapp"
-        >
-          <MessageCircle size={25} />
-          <span>WhatsApp</span>
-        </a>
+html {
+  scroll-behavior: smooth;
+}
 
-        <button className="menu-button" aria-label="Menu">
-          <Menu size={32} />
-        </button>
-      </header>
+body {
+  font-family: "Poppins", sans-serif;
+  background: #16002f;
+  color: var(--white);
+}
 
-      {/* HERO */}
-      <section className="hero">
-        <div className="hero-glow glow-one" />
-        <div className="hero-glow glow-two" />
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-        <div className="hero-content">
-          <div className="eyebrow">
-            SERVICE AC PROFESIONAL
-          </div>
+button {
+  font-family: inherit;
+}
 
-          <h1>
-            Service AC 24 Jam
-            <strong>Jabodetabek</strong>
-            Murah Bergaransi
-          </h1>
+.home {
+  min-height: 100vh;
+  overflow: hidden;
+}
 
-          <p className="hero-description">
-            Udara panas bikin nggak nyaman?
-            <br />
-            Kami siap bantu! Tim profesional kami akan
-            buat AC Anda kembali sejuk dan optimal —
-            cepat, bersih, dan bergaransi.
-          </p>
+/* =========================
+   HEADER
+========================= */
 
-          {/* FEATURE */}
-          <div className="features">
-            <div className="feature-card">
-              <div className="feature-icon">
-                <Snowflake size={27} />
-              </div>
-              <div>
-                <b>AC Kembali</b>
-                <span>Sejuk Optimal</span>
-              </div>
-            </div>
+.header {
+  position: relative;
+  z-index: 20;
+  min-height: 92px;
+  padding: 16px 5%;
 
-            <div className="feature-card">
-              <div className="feature-icon">
-                <ShieldCheck size={27} />
-              </div>
-              <div>
-                <b>Teknisi</b>
-                <span>Profesional</span>
-              </div>
-            </div>
+  display: flex;
+  align-items: center;
+  gap: 22px;
 
-            <div className="feature-card">
-              <div className="feature-icon">
-                <Clock3 size={27} />
-              </div>
-              <div>
-                <b>Layanan</b>
-                <span>24 Jam</span>
-              </div>
-            </div>
-          </div>
-        </div>
+  background: rgba(255, 255, 255, 0.98);
+  color: #241052;
 
-        {/* TECHNICIAN */}
-        <div className="technician-area">
-          <div className="ac-decoration">
-            <div className="ac-body">
-              <div className="ac-line" />
-              <div className="ac-line" />
-              <div className="ac-line" />
-            </div>
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 
-            <div className="cold-air">
-              <Snowflake size={30} />
-              <Snowflake size={21} />
-              <Snowflake size={25} />
-            </div>
-          </div>
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+}
 
-          <img
-            src="/teknisi.png"
-            alt="Teknisi Sabit Jaya Service"
-            className="technician"
-          />
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
 
-          <div className="technician-glow" />
-        </div>
+.logo-mark {
+  width: 58px;
+  height: 58px;
 
-        {/* BOTTOM CONTACT */}
-        <div className="contact-buttons">
-          <a
-            href="tel:+6280000000000"
-            className="contact-button"
-          >
-            <Phone size={28} />
-            <span>Hubungi Kami</span>
-          </a>
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-          <a
-            href="https://wa.me/6280000000000"
-            className="contact-button"
-          >
-            <MessageCircle size={29} />
-            <span>Hubungi Kami</span>
-          </a>
-        </div>
+  border-radius: 50%;
 
-        <div className="slider-dots">
-          <span className="active" />
-          <span />
-          <span />
-        </div>
-      </section>
-    </main>
-  );
+  font-size: 39px;
+  font-weight: 800;
+  font-style: italic;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      145deg,
+      #a83cff 0%,
+      #6415d0 45%,
+      #321080 100%
+    );
+
+  box-shadow:
+    0 8px 20px rgba(94, 20, 210, 0.3);
+}
+
+.brand-name {
+  font-size: clamp(17px, 2vw, 27px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.brand-name span {
+  color: #38206e;
+}
+
+.brand-tagline {
+  margin-top: 3px;
+  color: #766c8c;
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+
+.header-whatsapp {
+  min-width: 190px;
+
+  padding: 13px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      100deg,
+      #00b9d9,
+      #13c75b,
+      #70ce00
+    );
+
+  border-radius: 12px;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 25px rgba(22, 201, 90, 0.28);
+}
+
+.menu-button {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  background: transparent;
+
+  color: #241052;
+
+  cursor: pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+
+  min-height: calc(100vh - 92px);
+
+  padding: 80px 7% 125px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(320px, 0.9fr);
+
+  gap: 35px;
+
+  background:
+    radial-gradient(
+      circle at 85% 12%,
+      rgba(185, 82, 255, 0.75),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 8% 82%,
+      rgba(106, 32, 255, 0.7),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #19003b 0%,
+      #3e087d 42%,
+      #651bc4 68%,
+      #23004e 100%
+    );
+}
+
+/* Glossy light */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 1000px;
+  height: 250px;
+
+  top: -70px;
+  right: -300px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.22),
+      transparent
+    );
+
+  transform: rotate(-17deg);
+
+  filter: blur(12px);
+
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 900px;
+  height: 240px;
+
+  bottom: -110px;
+  left: -280px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(164, 78, 255, 0.7),
+      transparent
+    );
+
+  transform: rotate(18deg);
+
+  filter: blur(10px);
+
+  pointer-events: none;
+}
+
+.hero-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(70px);
+
+  pointer-events: none;
+}
+
+.glow-one {
+  width: 240px;
+  height: 240px;
+
+  top: 20%;
+  right: 20%;
+
+  background: rgba(218, 79, 255, 0.25);
+}
+
+.glow-two {
+  width: 260px;
+  height: 260px;
+
+  bottom: 15%;
+  left: 15%;
+
+  background: rgba(75, 35, 255, 0.3);
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+
+  max-width: 760px;
+}
+
+.eyebrow {
+  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 6px;
+}
+
+.eyebrow::after {
+  content: "";
+
+  width: 65px;
+  height: 3px;
+
+  background: #e179ff;
+
+  border-radius: 5px;
+
+  box-shadow: 0 0 12px #e179ff;
+}
+
+.hero h1 {
+  margin-bottom: 25px;
+
+  font-size: clamp(43px, 5vw, 78px);
+
+  line-height: 1.02;
+
+  font-weight: 800;
+
+  letter-spacing: -2px;
+
+  text-shadow:
+    0 5px 25px rgba(0, 0, 0, 0.25);
+}
+
+.hero h1 strong {
+  display: block;
+
+  color: #ff9bf4;
+
+  font-weight: 800;
+
+  text-shadow:
+    0 0 25px rgba(255, 117, 244, 0.28);
+}
+
+.hero-description {
+  max-width: 720px;
+
+  margin-bottom: 35px;
+
+  color: rgba(255, 255, 255, 0.92);
+
+  font-size: clamp(16px, 1.7vw, 22px);
+
+  line-height: 1.75;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+
+  max-width: 355px;
+}
+
+.feature-card {
+  min-height: 82px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 10px 18px 10px 10px;
+
+  background:
+    linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0.17),
+      rgba(255, 255, 255, 0.05)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+
+  border-radius: 18px;
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.feature-icon {
+  width: 62px;
+  height: 62px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  color: #5d18bd;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.16);
+}
+
+.feature-card b,
+.feature-card span {
+  display: block;
+}
+
+.feature-card b {
+  font-size: 16px;
+}
+
+.feature-card span {
+  margin-top: 2px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 14px;
+}
+
+/* =========================
+   TECHNICIAN
+========================= */
+
+.technician-area {
+  position: relative;
+  z-index: 5;
+
+  min-height: 650px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.technician-area::before {
+  content: "";
+
+  position: absolute;
+
+  width: 90%;
+  height: 90%;
+
+  right: 0;
+  bottom: 0;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(174, 96, 255, 0.4),
+      transparent 65%
+    );
+
+  filter: blur(15px);
+}
+
+.technician {
+  position: relative;
+  z-index: 5;
+
+  width: min(100%, 500px);
+
+  max-height: 650px;
+
+  object-fit: contain;
+
+  object-position: bottom center;
+
+  filter:
+    drop-shadow(0 25px 30px rgba(0, 0, 0, 0.35));
+}
+
+.technician-glow {
+  position: absolute;
+
+  width: 330px;
+  height: 90px;
+
+  bottom: 20px;
+
+  background: rgba(197, 92, 255, 0.55);
+
+  filter: blur(40px);
+
+  border-radius: 50%;
+}
+
+/* =========================
+   AC DECORATION
+========================= */
+
+.ac-decoration {
+  position: absolute;
+
+  top: 25px;
+  right: 4%;
+
+  width: 250px;
+
+  z-index: 2;
+
+  opacity: 0.95;
+}
+
+.ac-body {
+  height: 82px;
+
+  border-radius: 18px 18px 35px 35px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff,
+      #d9d9e5
+    );
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.ac-line {
+  height: 4px;
+
+  margin: 9px 20px;
+
+  border-radius: 10px;
+
+  background: #a9a9b9;
+}
+
+.cold-air {
+  display: flex;
+  justify-content: space-around;
+
+  margin-top: 10px;
+
+  color: #aeefff;
+
+  filter:
+    drop-shadow(0 0 10px #75ddff);
+}
+
+/* =========================
+   CONTACT BUTTONS
+========================= */
+
+.contact-buttons {
+  position: absolute;
+
+  z-index: 15;
+
+  left: 5%;
+  right: 5%;
+  bottom: 45px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+}
+
+.contact-button {
+  min-height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 13px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #11bd58,
+      #09a948
+    );
+
+  border: 2px solid rgba(255, 255, 255, 0.65);
+
+  border-radius: 17px;
+
+  font-size: 19px;
+  font-weight: 700;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.22),
+    0 0 20px rgba(22, 201, 90, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.contact-button:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 16px 35px rgba(0, 0, 0, 0.25),
+    0 0 28px rgba(22, 201, 90, 0.38);
+}
+
+.slider-dots {
+  position: absolute;
+
+  z-index: 20;
+
+  bottom: 17px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 9px;
+}
+
+.slider-dots span {
+  width: 35px;
+  height: 7px;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.slider-dots span.active {
+  background: white;
+
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 0.8);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .header {
+    padding: 13px 20px;
   }
+
+  .header-whatsapp {
+    min-width: auto;
+    padding: 12px 16px;
+  }
+
+  .header-whatsapp span {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+
+    padding: 55px 25px 140px;
+
+    min-height: auto;
+  }
+
+  .hero-content {
+    max-width: 700px;
+  }
+
+  .technician-area {
+    min-height: 530px;
+
+    margin-top: -10px;
+  }
+
+  .technician {
+    max-height: 530px;
+  }
+
+  .ac-decoration {
+    right: 10%;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .header {
+    min-height: 76px;
+
+    padding: 10px 13px;
+
+    gap: 8px;
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .logo-mark {
+    width: 45px;
+    height: 45px;
+
+    font-size: 29px;
+  }
+
+  .brand-name {
+    font-size: 14px;
+
+    letter-spacing: -0.3px;
+  }
+
+  .brand-tagline {
+    font-size: 8px;
+
+    letter-spacing: 2px;
+  }
+
+  .header-whatsapp {
+    padding: 10px 13px;
+
+    border-radius: 10px;
+  }
+
+  .menu-button {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero {
+    padding: 42px 18px 125px;
+
+    gap: 10px;
+
+    background:
+      radial-gradient(
+        circle at 85% 12%,
+        rgba(196, 74, 255, 0.7),
+        transparent 28%
+      ),
+      linear-gradient(
+        150deg,
+        #170034,
+        #430b91 55%,
+        #250054
+      );
+  }
+
+  .eyebrow {
+    margin-bottom: 15px;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+  }
+
+  .eyebrow::after {
+    width: 35px;
+    height: 2px;
+  }
+
+  .hero h1 {
+    margin-bottom: 18px;
+
+    font-size: 39px;
+
+    line-height: 1.05;
+
+    letter-spacing: -1.3px;
+  }
+
+  .hero-description {
+    margin-bottom: 25px;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+  .features {
+    max-width: 290px;
+
+    gap: 9px;
+  }
+
+  .feature-card {
+    min-height: 66px;
+
+    padding: 7px 12px 7px 7px;
+
+    border-radius: 14px;
+  }
+
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 12px;
+  }
+
+  .feature-card b {
+    font-size: 13px;
+  }
+
+  .feature-card span {
+    font-size: 11px;
+  }
+
+  .technician-area {
+    min-height: 430px;
+
+    margin-top: 10px;
+  }
+
+  .technician {
+    width: 95%;
+
+    max-height: 450px;
+  }
+
+  .ac-decoration {
+    top: 5px;
+    right: 0;
+
+    width: 155px;
+  }
+
+  .ac-body {
+    height: 52px;
+
+    border-radius: 12px 12px 22px 22px;
+  }
+
+  .ac-line {
+    height: 2px;
+
+    margin: 6px 12px;
+  }
+
+  .cold-air svg {
+    width: 18px;
+  }
+
+  .contact-buttons {
+    left: 12px;
+    right: 12px;
+    bottom: 45px;
+
+    gap: 9px;
+  }
+
+  .contact-button {
+    min-height: 58px;
+
+    gap: 7px;
+
+    border-radius: 14px;
+
+    font-size: 13px;
+  }
+
+  .contact-button
