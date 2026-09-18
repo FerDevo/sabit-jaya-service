@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --purple-dark: #16002f;
-  --purple-deep: #25005a;
-  --purple: #5413b8;
-  --purple-bright: #792cff;
-  --purple-pink: #d65cff;
-  --green: #16c95a;
-  --green-dark: #07943c;
+  --purple-1: #16002f;
+  --purple-2: #2c0568;
+  --purple-3: #5b16c9;
+  --purple-4: #8c3cff;
+  --pink: #f08cff;
+  --green: #13b957;
+  --green-dark: #079640;
   --white: #ffffff;
 }
 
@@ -22,8 +22,9 @@ html {
 }
 
 body {
+  margin: 0;
   font-family: "Poppins", sans-serif;
-  background: #16002f;
+  background: var(--purple-1);
   color: var(--white);
 }
 
@@ -36,9 +37,37 @@ button {
   font-family: inherit;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================
+   HOME
+========================= */
+
 .home {
   min-height: 100vh;
   overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(185, 76, 255, 0.55),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 10% 85%,
+      rgba(79, 30, 255, 0.5),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #16002f 0%,
+      #320777 45%,
+      #6419c5 70%,
+      #1d0044 100%
+    );
 }
 
 /* =========================
@@ -48,102 +77,106 @@ button {
 .header {
   position: relative;
   z-index: 20;
-  min-height: 92px;
-  padding: 16px 5%;
+
+  min-height: 88px;
+  padding: 12px 5%;
 
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
 
   background: rgba(255, 255, 255, 0.98);
-  color: #241052;
+  color: #25104e;
 
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
 
-  border-bottom-left-radius: 28px;
-  border-bottom-right-radius: 28px;
+  border-radius: 0 0 24px 24px;
 }
 
 .logo-area {
+  flex: 1;
+
   display: flex;
   align-items: center;
   gap: 12px;
-  flex: 1;
 }
 
 .logo-mark {
-  width: 58px;
-  height: 58px;
+  width: 56px;
+  height: 56px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  flex-shrink: 0;
+
   border-radius: 50%;
 
-  font-size: 39px;
-  font-weight: 800;
-  font-style: italic;
-
-  color: white;
+  color: #ffffff;
 
   background:
     linear-gradient(
       145deg,
-      #a83cff 0%,
-      #6415d0 45%,
-      #321080 100%
+      #a945ff 0%,
+      #6616d0 50%,
+      #301078 100%
     );
 
+  font-size: 38px;
+  font-weight: 800;
+  font-style: italic;
+
   box-shadow:
-    0 8px 20px rgba(94, 20, 210, 0.3);
+    0 8px 22px rgba(92, 24, 207, 0.35);
 }
 
 .brand-name {
   font-size: clamp(17px, 2vw, 27px);
   font-weight: 800;
   line-height: 1.1;
-  letter-spacing: -0.5px;
 }
 
 .brand-name span {
-  color: #38206e;
+  color: #34215d;
 }
 
 .brand-tagline {
-  margin-top: 3px;
+  margin-top: 4px;
+
   color: #766c8c;
-  font-size: 13px;
+
+  font-size: 12px;
   letter-spacing: 3px;
 }
 
 .header-whatsapp {
-  min-width: 190px;
-
-  padding: 13px 22px;
+  min-width: 180px;
 
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 9px;
 
-  color: white;
+  padding: 13px 20px;
+
+  border-radius: 12px;
+
+  color: #ffffff;
 
   background:
     linear-gradient(
       100deg,
-      #00b9d9,
+      #00b7d9,
       #13c75b,
-      #70ce00
+      #72ce00
     );
 
-  border-radius: 12px;
-
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
 
   box-shadow:
-    0 8px 25px rgba(22, 201, 90, 0.28);
+    0 8px 22px rgba(18, 197, 86, 0.3);
 }
 
 .menu-button {
@@ -155,6 +188,8 @@ button {
   justify-content: center;
 
   border: 0;
+  border-radius: 12px;
+
   background: transparent;
 
   color: #241052;
@@ -169,39 +204,19 @@ button {
 .hero {
   position: relative;
 
-  min-height: calc(100vh - 92px);
+  min-height: calc(100vh - 88px);
 
-  padding: 80px 7% 125px;
+  padding: 70px 7% 130px;
 
   display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
 
-  grid-template-columns:
-    minmax(0, 1.1fr)
-    minmax(320px, 0.9fr);
+  gap: 30px;
 
-  gap: 35px;
-
-  background:
-    radial-gradient(
-      circle at 85% 12%,
-      rgba(185, 82, 255, 0.75),
-      transparent 27%
-    ),
-    radial-gradient(
-      circle at 8% 82%,
-      rgba(106, 32, 255, 0.7),
-      transparent 32%
-    ),
-    linear-gradient(
-      135deg,
-      #19003b 0%,
-      #3e087d 42%,
-      #651bc4 68%,
-      #23004e 100%
-    );
+  overflow: hidden;
 }
 
-/* Glossy light */
+/* Glossy background */
 
 .hero::before {
   content: "";
@@ -211,8 +226,8 @@ button {
   width: 1000px;
   height: 250px;
 
-  top: -70px;
-  right: -300px;
+  top: -50px;
+  right: -250px;
 
   border-radius: 50%;
 
@@ -220,11 +235,11 @@ button {
     linear-gradient(
       90deg,
       transparent,
-      rgba(255, 255, 255, 0.22),
+      rgba(255, 255, 255, 0.2),
       transparent
     );
 
-  transform: rotate(-17deg);
+  transform: rotate(-18deg);
 
   filter: blur(12px);
 
@@ -236,10 +251,10 @@ button {
 
   position: absolute;
 
-  width: 900px;
-  height: 240px;
+  width: 850px;
+  height: 220px;
 
-  bottom: -110px;
+  bottom: -90px;
   left: -280px;
 
   border-radius: 50%;
@@ -248,13 +263,13 @@ button {
     linear-gradient(
       90deg,
       transparent,
-      rgba(164, 78, 255, 0.7),
+      rgba(175, 78, 255, 0.7),
       transparent
     );
 
-  transform: rotate(18deg);
+  transform: rotate(17deg);
 
-  filter: blur(10px);
+  filter: blur(12px);
 
   pointer-events: none;
 }
@@ -264,29 +279,29 @@ button {
 
   border-radius: 50%;
 
-  filter: blur(70px);
+  filter: blur(80px);
 
   pointer-events: none;
 }
 
 .glow-one {
-  width: 240px;
-  height: 240px;
+  width: 260px;
+  height: 260px;
 
-  top: 20%;
-  right: 20%;
+  top: 15%;
+  right: 25%;
 
-  background: rgba(218, 79, 255, 0.25);
+  background: rgba(221, 74, 255, 0.22);
 }
 
 .glow-two {
-  width: 260px;
-  height: 260px;
+  width: 300px;
+  height: 300px;
 
   bottom: 15%;
   left: 15%;
 
-  background: rgba(75, 35, 255, 0.3);
+  background: rgba(82, 35, 255, 0.25);
 }
 
 /* =========================
@@ -305,13 +320,12 @@ button {
 
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 14px;
 
-  color: #ffffff;
-
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 6px;
+
+  letter-spacing: 5px;
 }
 
 .eyebrow::after {
@@ -320,19 +334,19 @@ button {
   width: 65px;
   height: 3px;
 
-  background: #e179ff;
+  border-radius: 10px;
 
-  border-radius: 5px;
+  background: #df7aff;
 
-  box-shadow: 0 0 12px #e179ff;
+  box-shadow: 0 0 14px #df7aff;
 }
 
 .hero h1 {
   margin-bottom: 25px;
 
-  font-size: clamp(43px, 5vw, 78px);
+  font-size: clamp(44px, 5vw, 76px);
 
-  line-height: 1.02;
+  line-height: 1.03;
 
   font-weight: 800;
 
@@ -350,19 +364,19 @@ button {
   font-weight: 800;
 
   text-shadow:
-    0 0 25px rgba(255, 117, 244, 0.28);
+    0 0 25px rgba(255, 112, 241, 0.3);
 }
 
 .hero-description {
   max-width: 720px;
 
-  margin-bottom: 35px;
+  margin-bottom: 32px;
 
   color: rgba(255, 255, 255, 0.92);
 
-  font-size: clamp(16px, 1.7vw, 22px);
+  font-size: clamp(16px, 1.7vw, 21px);
 
-  line-height: 1.75;
+  line-height: 1.7;
 }
 
 /* =========================
@@ -370,43 +384,44 @@ button {
 ========================= */
 
 .features {
+  max-width: 360px;
+
   display: flex;
   flex-direction: column;
-  gap: 13px;
 
-  max-width: 355px;
+  gap: 12px;
 }
 
 .feature-card {
-  min-height: 82px;
+  min-height: 78px;
 
   display: flex;
   align-items: center;
 
-  gap: 15px;
+  gap: 14px;
 
-  padding: 10px 18px 10px 10px;
+  padding: 9px 16px 9px 9px;
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+
+  border-radius: 16px;
 
   background:
     linear-gradient(
       100deg,
-      rgba(255, 255, 255, 0.17),
+      rgba(255, 255, 255, 0.16),
       rgba(255, 255, 255, 0.05)
     );
-
-  border: 1px solid rgba(255, 255, 255, 0.22);
-
-  border-radius: 18px;
 
   backdrop-filter: blur(12px);
 
   box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.12);
+    0 10px 28px rgba(0, 0, 0, 0.15);
 }
 
 .feature-icon {
-  width: 62px;
-  height: 62px;
+  width: 60px;
+  height: 60px;
 
   flex-shrink: 0;
 
@@ -414,31 +429,30 @@ button {
   align-items: center;
   justify-content: center;
 
-  border-radius: 15px;
+  border-radius: 14px;
 
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.95);
 
   color: #5d18bd;
 
   box-shadow:
-    0 5px 18px rgba(0, 0, 0, 0.16);
-}
-
-.feature-card b,
-.feature-card span {
-  display: block;
+    0 5px 16px rgba(0, 0, 0, 0.15);
 }
 
 .feature-card b {
+  display: block;
+
   font-size: 16px;
 }
 
 .feature-card span {
+  display: block;
+
   margin-top: 2px;
 
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.78);
 
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /* =========================
@@ -449,7 +463,7 @@ button {
   position: relative;
   z-index: 5;
 
-  min-height: 650px;
+  min-height: 630px;
 
   display: flex;
   align-items: flex-end;
@@ -464,15 +478,15 @@ button {
   width: 90%;
   height: 90%;
 
-  right: 0;
   bottom: 0;
+  right: 0;
 
   border-radius: 50%;
 
   background:
     radial-gradient(
       circle,
-      rgba(174, 96, 255, 0.4),
+      rgba(177, 83, 255, 0.38),
       transparent 65%
     );
 
@@ -483,16 +497,17 @@ button {
   position: relative;
   z-index: 5;
 
-  width: min(100%, 500px);
+  width: min(100%, 510px);
 
-  max-height: 650px;
+  max-height: 640px;
 
   object-fit: contain;
-
   object-position: bottom center;
 
   filter:
-    drop-shadow(0 25px 30px rgba(0, 0, 0, 0.35));
+    drop-shadow(
+      0 25px 30px rgba(0, 0, 0, 0.35)
+    );
 }
 
 .technician-glow {
@@ -501,13 +516,13 @@ button {
   width: 330px;
   height: 90px;
 
-  bottom: 20px;
-
-  background: rgba(197, 92, 255, 0.55);
-
-  filter: blur(40px);
+  bottom: 15px;
 
   border-radius: 50%;
+
+  background: rgba(196, 85, 255, 0.5);
+
+  filter: blur(40px);
 }
 
 /* =========================
@@ -517,20 +532,18 @@ button {
 .ac-decoration {
   position: absolute;
 
+  z-index: 3;
+
   top: 25px;
-  right: 4%;
+  right: 5%;
 
-  width: 250px;
-
-  z-index: 2;
-
-  opacity: 0.95;
+  width: 240px;
 }
 
 .ac-body {
-  height: 82px;
+  height: 78px;
 
-  border-radius: 18px 18px 35px 35px;
+  border-radius: 18px 18px 32px 32px;
 
   background:
     linear-gradient(
@@ -540,33 +553,33 @@ button {
     );
 
   box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.2);
+    0 15px 35px rgba(0, 0, 0, 0.22);
 }
 
 .ac-line {
   height: 4px;
 
-  margin: 9px 20px;
+  margin: 9px 18px;
 
   border-radius: 10px;
 
-  background: #a9a9b9;
+  background: #a6a6b5;
 }
 
 .cold-air {
   display: flex;
   justify-content: space-around;
 
-  margin-top: 10px;
+  margin-top: 9px;
 
-  color: #aeefff;
+  color: #b3efff;
 
   filter:
-    drop-shadow(0 0 10px #75ddff);
+    drop-shadow(0 0 10px #65d9ff);
 }
 
 /* =========================
-   CONTACT BUTTONS
+   CONTACT
 ========================= */
 
 .contact-buttons {
@@ -576,43 +589,42 @@ button {
 
   left: 5%;
   right: 5%;
-  bottom: 45px;
+  bottom: 43px;
 
   display: grid;
-
   grid-template-columns: 1fr 1fr;
 
-  gap: 18px;
+  gap: 16px;
 }
 
 .contact-button {
-  min-height: 68px;
+  min-height: 66px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  gap: 13px;
+  gap: 12px;
 
-  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+
+  border-radius: 16px;
+
+  color: #ffffff;
 
   background:
     linear-gradient(
       135deg,
-      #11bd58,
-      #09a948
+      #14c15a,
+      #08a948
     );
 
-  border: 2px solid rgba(255, 255, 255, 0.65);
-
-  border-radius: 17px;
-
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 700;
 
   box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.22),
-    0 0 20px rgba(22, 201, 90, 0.22);
+    0 12px 30px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(20, 193, 90, 0.22);
 
   transition:
     transform 0.25s ease,
@@ -624,7 +636,7 @@ button {
 
   box-shadow:
     0 16px 35px rgba(0, 0, 0, 0.25),
-    0 0 28px rgba(22, 201, 90, 0.38);
+    0 0 28px rgba(20, 193, 90, 0.4);
 }
 
 .slider-dots {
@@ -632,27 +644,27 @@ button {
 
   z-index: 20;
 
-  bottom: 17px;
-
   left: 50%;
+  bottom: 15px;
 
   transform: translateX(-50%);
 
   display: flex;
-  gap: 9px;
+
+  gap: 8px;
 }
 
 .slider-dots span {
-  width: 35px;
-  height: 7px;
+  width: 32px;
+  height: 6px;
 
   border-radius: 20px;
 
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .slider-dots span.active {
-  background: white;
+  background: #ffffff;
 
   box-shadow:
     0 0 12px rgba(255, 255, 255, 0.8);
@@ -664,42 +676,25 @@ button {
 
 @media (max-width: 900px) {
   .header {
-    padding: 13px 20px;
+    padding: 12px 20px;
   }
 
   .header-whatsapp {
     min-width: auto;
-    padding: 12px 16px;
-  }
-
-  .header-whatsapp span {
-    display: none;
   }
 
   .hero {
     grid-template-columns: 1fr;
 
     padding: 55px 25px 140px;
-
-    min-height: auto;
-  }
-
-  .hero-content {
-    max-width: 700px;
   }
 
   .technician-area {
     min-height: 530px;
-
-    margin-top: -10px;
   }
 
   .technician {
-    max-height: 530px;
-  }
-
-  .ac-decoration {
-    right: 10%;
+    max-height: 540px;
   }
 }
 
@@ -709,90 +704,92 @@ button {
 
 @media (max-width: 600px) {
   .header {
-    min-height: 76px;
+    min-height: 74px;
 
-    padding: 10px 13px;
+    padding: 9px 12px;
 
-    gap: 8px;
+    gap: 7px;
 
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 0 0 18px 18px;
   }
 
   .logo-mark {
-    width: 45px;
-    height: 45px;
+    width: 44px;
+    height: 44px;
 
     font-size: 29px;
   }
 
   .brand-name {
-    font-size: 14px;
-
-    letter-spacing: -0.3px;
+    font-size: 13px;
   }
 
   .brand-tagline {
-    font-size: 8px;
-
-    letter-spacing: 2px;
+    font-size: 7px;
+    letter-spacing: 1.8px;
   }
 
   .header-whatsapp {
-    padding: 10px 13px;
+    padding: 9px 11px;
 
     border-radius: 10px;
   }
 
+  .header-whatsapp span {
+    display: none;
+  }
+
   .menu-button {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
   }
 
   .hero {
-    padding: 42px 18px 125px;
+    min-height: auto;
 
-    gap: 10px;
+    padding: 40px 18px 125px;
+
+    gap: 8px;
 
     background:
       radial-gradient(
-        circle at 85% 12%,
-        rgba(196, 74, 255, 0.7),
+        circle at 85% 10%,
+        rgba(190, 68, 255, 0.65),
         transparent 28%
       ),
       linear-gradient(
         150deg,
-        #170034,
+        #170033 0%,
         #430b91 55%,
-        #250054
+        #250052 100%
       );
   }
 
   .eyebrow {
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 3px;
   }
 
   .eyebrow::after {
-    width: 35px;
+    width: 30px;
     height: 2px;
   }
 
   .hero h1 {
-    margin-bottom: 18px;
+    margin-bottom: 17px;
 
-    font-size: 39px;
+    font-size: 38px;
 
     line-height: 1.05;
 
-    letter-spacing: -1.3px;
+    letter-spacing: -1.2px;
   }
 
   .hero-description {
-    margin-bottom: 25px;
+    margin-bottom: 24px;
 
     font-size: 14px;
 
@@ -800,42 +797,42 @@ button {
   }
 
   .features {
-    max-width: 290px;
+    max-width: 285px;
 
-    gap: 9px;
+    gap: 8px;
   }
 
   .feature-card {
-    min-height: 66px;
+    min-height: 64px;
 
-    padding: 7px 12px 7px 7px;
+    padding: 7px 10px 7px 7px;
 
-    border-radius: 14px;
+    border-radius: 13px;
   }
 
   .feature-icon {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
 
-    border-radius: 12px;
+    border-radius: 11px;
   }
 
   .feature-card b {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .feature-card span {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .technician-area {
-    min-height: 430px;
+    min-height: 425px;
 
-    margin-top: 10px;
+    margin-top: 8px;
   }
 
   .technician {
-    width: 95%;
+    width: 96%;
 
     max-height: 450px;
   }
@@ -844,41 +841,81 @@ button {
     top: 5px;
     right: 0;
 
-    width: 155px;
+    width: 150px;
   }
 
   .ac-body {
-    height: 52px;
+    height: 50px;
 
-    border-radius: 12px 12px 22px 22px;
+    border-radius: 11px 11px 20px 20px;
   }
 
   .ac-line {
     height: 2px;
 
-    margin: 6px 12px;
+    margin: 6px 11px;
   }
 
   .cold-air svg {
-    width: 18px;
+    width: 17px;
+    height: 17px;
   }
 
   .contact-buttons {
-    left: 12px;
-    right: 12px;
-    bottom: 45px;
+    left: 11px;
+    right: 11px;
+    bottom: 43px;
 
-    gap: 9px;
+    gap: 8px;
   }
 
   .contact-button {
-    min-height: 58px;
+    min-height: 57px;
 
-    gap: 7px;
+    gap: 6px;
 
-    border-radius: 14px;
+    border-radius: 13px;
 
+    font-size: 12px;
+  }
+
+  .contact-button svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .slider-dots {
+    bottom: 15px;
+  }
+
+  .slider-dots span {
+    width: 24px;
+    height: 5px;
+  }
+}
+
+/* =========================
+   SMALL PHONE
+========================= */
+
+@media (max-width: 380px) {
+  .brand-name {
+    font-size: 11px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero-description {
     font-size: 13px;
   }
 
-  .contact-button
+  .technician-area {
+    min-height: 380px;
+  }
+
+  .contact-button {
+    font-size: 11px;
+  }
+  }
